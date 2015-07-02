@@ -39,8 +39,7 @@ public class Users {
 	}
 	@Override
 	public String toString() {
-		return "Users [username=" + username + ", password=" + password
-				+ ", id=" + id + ", email=" + email + ", address=" + address
+		return "Users [username=" + username + ", id=" + id + ", email=" + email + ", address=" + address
 				+ "]";
 	}
 	public Users(String username, String password, int id, String email,
