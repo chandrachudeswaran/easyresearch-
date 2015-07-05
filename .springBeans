@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/com/easyresearch/configuration/dao-context.xml</config>
 		<config>src/com/easyresearch/configuration/service-context.xml</config>
+		<config>src/com/easyresearch/configuration/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>WebContent/WEB-INF/easyresearch-servlet.xml</config>

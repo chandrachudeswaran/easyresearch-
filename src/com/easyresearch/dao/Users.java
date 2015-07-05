@@ -7,6 +7,14 @@ public class Users {
 	private int id;
 	private String email;
 	private Address address;
+	private boolean enabled;
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -37,21 +45,24 @@ public class Users {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	
 	@Override
 	public String toString() {
-		return "Users [username=" + username + ", id=" + id + ", email=" + email + ", address=" + address
-				+ "]";
+		return "Users [username=" + username + ", id=" + id + ", email="
+				+ email + ", address=" + address + ", enabled=" + enabled + "]";
 	}
+
+	
 	public Users(String username, String password, int id, String email,
-			Address address) {
+			Address address, boolean enabled) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.id = id;
 		this.email = email;
 		this.address = address;
+		this.enabled = enabled;
 	}
-	
 	public Users(){
 		
 	}

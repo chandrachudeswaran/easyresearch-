@@ -16,4 +16,8 @@ public class UserService {
 		
 		return usersdao.getUser(id);
 	}
+	
+	public boolean createUser(Users user){
+		return usersdao.createUser(user);
+	}
 }

@@ -149,6 +149,7 @@
 
     <hr>
  --> 
+ <a href="${pageContext.request.contextPath}/users">Show USers</a>
     <!-- Footer -->
     <footer>
         <div class="container">
