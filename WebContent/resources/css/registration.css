@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+.formerror{
+	font-size:small;
+	color:red;
+	
+}
+
+.error{
+		font-size:small;
+	color:red;
+	padding-left: 75px;
+}
+
+.valid {
+	font-size: small;
+	color: green;
+		padding-left: 75px;
+
+}
+
+.divclass{
+	margin-left:50px;
+}

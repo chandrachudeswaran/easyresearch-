@@ -19,16 +19,17 @@
 	<security:http use-expressions="true" pattern="/**">
 	<security:intercept-url pattern="/success" access="isAuthenticated()"/>
 	<security:intercept-url pattern="/users" access="isAuthenticated()"/>
+	<security:intercept-url pattern="/logout" access="permitAll"/>
 	<security:intercept-url pattern="/doRegistration" access="permitAll"/>
 	<security:intercept-url pattern="/login" access="permitAll"/>
 	<security:intercept-url pattern="/registration" access="permitAll"/>
 	<security:intercept-url pattern="/" access="permitAll" />
-	<security:intercept-url pattern="/static/**"
-			access="permitAll" />
+	<security:intercept-url pattern="/static/**" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll"/>
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true"
 			default-target-url="/success" />
+		<security:logout logout-success-url="/logout" />
 	</security:http>
-		  
+
 </beans>

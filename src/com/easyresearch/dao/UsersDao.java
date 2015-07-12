@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component("usersdao")
 public class UsersDao {
@@ -23,7 +22,7 @@ public class UsersDao {
 		
 		MapSqlParameterSource params = new MapSqlParameterSource("id",id);
 		
-		return jdbc.queryForObject("select * from users,address where users.id=:id and users.id=address.id",params, new UserMapper());
+		return jdbc.queryForObject("select * from users where users.id=:id" ,params, new UserMapper());
 		
 	}
 	
@@ -32,14 +31,13 @@ public class UsersDao {
 		return jdbc.queryForObject("select id from users where username=:username", params,Integer.class);
 	}
 	
-	@Transactional
+	
 	public boolean createUser(Users user){
 		
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
 		
-		jdbc.update("insert into users (username,password,email,enabled) values(:username,:password,:email,:enabled)", params);
-		int id = getUserid(user.getUsername());
-		user.setId(id);
-		return jdbc.update("insert into address (id,city,country) values(:id,:address.city,:address.country)", params) ==1;
+		return jdbc.update("insert into users (username,password,email,enabled,city,country) values(:username,:password,:email,:enabled,:city,:country)", params)==1;
+		
+		
 	}
 }
