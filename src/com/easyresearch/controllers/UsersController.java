@@ -47,6 +47,18 @@ public class UsersController {
 		}
 
 		user.setEnabled(true);
+		user.setAuthority("ROLE_AUTHOR");
+		
+		if(userservice.existsUsername(user.getUsername())){
+			result.rejectValue("username", "DuplicateKey.user.username");
+			return "registration";
+		}
+		
+		if(userservice.existsEmail(user.getEmail())){
+			result.rejectValue("email", "DuplicateKey.user.email");
+			return "registration";
+		}
+		
 		userservice.createUser(user);
 		return "success";
 	}
@@ -60,4 +72,6 @@ public class UsersController {
 	public String doLogout() {
 		return "home";
 	}
+	
+	
 }

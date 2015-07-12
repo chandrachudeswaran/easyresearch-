@@ -31,6 +31,7 @@ public class Users {
 	@Size(min=2,max=35)
 	private String country;
 	
+	private String authority;
 	
 	public String getUsername() {
 		return username;
@@ -74,10 +75,14 @@ public class Users {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 	public Users(String username, String password, int id, String email,
-			boolean enabled, String city, String country) {
+			boolean enabled, String city, String country,String authority) {
 	
 		this.username = username;
 		this.password = password;
@@ -86,6 +91,7 @@ public class Users {
 		this.enabled = enabled;
 		this.city = city;
 		this.country = country;
+		this.authority=authority;
 	}
 	
 	
